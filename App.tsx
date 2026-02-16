@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import HeartBurst from './components/HeartBurst';
 
@@ -34,11 +33,13 @@ const App: React.FC = () => {
   };
 
   const next = () => { 
-    if (step === 0) startMusic(); // Start music on first interaction
-    if (step < steps.length - 1) setStep(step + 1); 
+    if (step === 0) startMusic();
+    setStep(prev => Math.min(prev + 1, steps.length - 1));
   };
   
-  const prev = () => { if (step > 0) setStep(step - 1); };
+  const prev = () => { 
+    setStep(prev => Math.max(prev - 1, 0)); 
+  };
 
   const toggleMusic = () => {
     if (!audioRef.current) return;
@@ -137,7 +138,7 @@ const App: React.FC = () => {
                <h4 className="font-serif text-3xl mb-6 text-gray-800">Dear Shayra,</h4>
                <div className="space-y-4 text-gray-600 font-light text-base md:text-lg leading-relaxed">
                  <p>Happy 19th Birthday. You are entering a year of growth, but I hope you never lose that soft spark that makes you, <span className="text-pink-500 font-medium italic">you</span>.</p>
-                 <p>In a world of noise, your friendship is my favorite melody. Thank you for being the partner in crime who actually makes the crime look aesthetic.</p>
+                 <p>In a world of noise, your friendship is my favorite melody. Thank you for being the partner in crime who actually makes the crime (mostly gossip) look aesthetic.</p>
                  <p>May your year be filled with vintage coffee shops, high-fashion moments, and endless happiness.</p>
                  <div className="pt-6">
                    <p className="font-signature text-pink-400 text-5xl">Love you always,</p>
@@ -172,7 +173,11 @@ const App: React.FC = () => {
       {/* Visual Navigation Progress */}
       <div className="fixed top-12 left-0 w-full flex justify-center gap-3 z-50">
         {steps.map((_, i) => (
-          <div key={i} className={`dot ${i === step ? 'active' : ''}`} />
+          <button 
+            key={i} 
+            onClick={() => { if(i > 0) startMusic(); setStep(i); }}
+            className={`dot ${i === step ? 'active' : ''} cursor-pointer hover:bg-pink-300 transition-all`} 
+          />
         ))}
       </div>
 
