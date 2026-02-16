@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shayra • 19</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600&family=Playfair+Display:ital,wght@0,700;1,700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --pink-soft: #fff5f7;
+        --pink-accent: #ffb7c5;
+        --pink-deep: #ff8fa3;
+        --glass: rgba(255, 255, 255, 0.4);
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        font-family: 'Outfit', sans-serif;
+        background-color: var(--pink-soft);
+      }
+      .font-serif { font-family: 'Playfair Display', serif; }
+      .font-signature { font-family: 'Mrs Saint Delafield', cursive; }
+      
+      .bg-canvas {
+        background: radial-gradient(circle at 20% 30%, #fff0f3 0%, #fde2e4 50%, #f0eff4 100%);
+        position: relative;
+      }
+      
+      .bg-canvas::after {
+        content: "";
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        opacity: 0.03;
+        pointer-events: none;
+        background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(25px) saturate(180%);
+        -webkit-backdrop-filter: blur(25px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 40px;
+        box-shadow: 0 30px 60px rgba(255, 143, 163, 0.1);
+      }
+
+      .btn-stylish {
+        background: white;
+        border: 1px solid rgba(255, 143, 163, 0.2);
+        box-shadow: 
+          0 10px 20px rgba(255, 143, 163, 0.1),
+          inset 0 -4px 10px rgba(255, 143, 163, 0.05);
+        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+      .btn-stylish:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(255, 143, 163, 0.15);
+        background: #fffcfd;
+      }
+
+      .fade-up {
+        animation: fadeUp 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+      }
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(40px) scale(0.98); filter: blur(10px); }
+        to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 143, 163, 0.2);
+        transition: all 0.6s ease;
+      }
+      .dot.active {
+        width: 24px;
+        border-radius: 4px;
+        background: var(--pink-deep);
+      }
+
+      /* Polaroid Aesthetic */
+      .polaroid {
+        background: white;
+        padding: 10px 10px 30px 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        border: 1px solid rgba(0,0,0,0.02);
+        transform: rotate(-2deg);
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+      .polaroid:hover {
+        transform: rotate(0deg) translateY(-10px) scale(1.05);
+        z-index: 50;
+      }
+      .polaroid-caption {
+        font-family: 'Mrs Saint Delafield', cursive;
+        color: #ff8fa3;
+        font-size: 1.5rem;
+        margin-top: 10px;
+        text-align: center;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
